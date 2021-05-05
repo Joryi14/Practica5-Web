@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    {{> layout}}
+    </div>
+ <div class="container">
+  <div class="row">
+    <div class="eleven column" style="margin-top: 10%">
+       <div class="row">
+          <div class="eleven column" style="margin-top: 10%">
+           <h2>{{title}}</h2>
+            {{#book}}
+            {{#show}}<form>{{/show}}
+            {{#create}}<form action="/book" method="POST">{{/create}}
+            {{#edit}}<form action="/book/{{id}}" method="POST">
+               <input type="hidden" name="_method" value="PUT">{{/edit}}
+     <div class="row">
+      <div class="three  columns">
+       <label for="nameInput">Title</label></td>
+       <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+          name="title" value="{{title}}">
+      </div>
+      <div class="three  columns">
+       <label for="degreeInput">Edition</label>
+       <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+          name="edition" value="{{edition}}">
+      </div>
+      <div class="three columns">
+        <label for="degreeInput">Pages</label>
+        <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+           name="pages" value="{{pages}}">
+       </div>
+       <div class="three  columns">
+        <label for="degreeInput">Author</label>
+        <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+        name="{{author}}" value="{{author}}">
+       </div>
+       <div class="three  columns">
+        <label for="degreeInput">Author id</label>
+        <input class="u-full-width" type="number" {{#show}} readonly {{/show}}
+        name="{{author_id}}" value="{{author_id}}">
+       </div>
+     </div>
+     <div class="row">
+      <div class="three  columns">
+       <label for="nameInput">Copyright</label>
+       <input class="u-full-width" type="email" {{#show}} readonly {{/show}}
+          name="copyright" value="{{copyright}}">
+      </div>
+      <div class="three columns">
+       <label for="phoneInput">Language</label>
+       <input class="u-full-width" type="tel" {{#show}} readonly {{/show}}
+         name="language" value="{{language}}">
+      </div>
+      <div class="three columns">
+        <label for="phoneInput">Publisher</label>
+        <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+         name="{{publisher}}" value="{{publisher}}">
+       </div>
+      <div class="three columns">
+        <label for="phoneInput">publisher_id</label>
+        <input class="u-full-width" type="number" {{#show}} readonly {{/show}}
+         name="{{publisher_id}}" value="{{publisher_id}}">
+       </div>
+       <div class="three columns">
+     <a class="button button-primary" href="/book">Back</a>
+    </div>
+     </div>
+     {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update">{{/edit}}
+     {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create">{{/create}}
+     {{/book}}
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+</body>

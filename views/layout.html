@@ -1,0 +1,12 @@
+ <ul>
+      <li><a href="/book">Book</a></li>
+      <li><a href="/author">Author</a></li>
+      <li><a href="/publisher">Publisher</a></li>
+      <li style="float:right"><a class="active" href="/">Home</a></li>
+      {{#login}}
+      <li style="float:right"><a href="/logout"  >Logout</a></li>
+      {{/login}}
+      {{^login}}
+      <li style="float:right"> <a href="/login" >Login</a></li> 
+      {{~login}} 
+    </ul>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    {{> layout}}
+    </div>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column" style="margin-top: 10%">
+      <div class="row">
+         <div class="eleven column" style="margin-top: 10%">
+          <h2>{{title}}</h2>
+           {{#publisher}}
+           {{#show}}<form>{{/show}}
+           {{#create}}<form action="/publisher" method="POST">{{/create}}
+           {{#edit}}<form action="/publisher/{{id}}" method="POST">
+              <input type="hidden" name="_method" value="PUT">{{/edit}}
+     <div class="row">
+      <div class="three  columns">
+       <label for="nameInput">Publisher</label></td>
+       <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+          name="publisher" value="{{publisher}}">
+      </div>
+      <div class="three  columns">
+       <label for="degreeInput">Country</label>
+       <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+
+          name="country" value="{{country}}">
+      </div>
+      <div class="three columns">
+        <label for="degreeInput">Founded</label>
+        <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+
+           name="founded" value="{{founded}}">
+       </div>
+       <div class="three columns">
+        <label for="degreeInput">Genere</label>
+        <input class="u-full-width" type="text" {{#show}} readonly {{/show}}
+           name="genere" value="{{genere}}">
+       </div>
+    <div class="three columns">
+      <a class="button button-primary" href="/publisher">Back</a>
+     </div>
+     {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update">{{/edit}}
+     {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create">{{/create}}
+    {{/publisher}}
+    </form>
+   </div>
+  </div>
+</div>
+</div>
+ </div>
+</body>
